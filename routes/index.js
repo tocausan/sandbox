@@ -7,7 +7,21 @@ const express = require('express'),
         'hello-doodle',
         'shadow-list',
         'date-digit',
-        'clock-digit'
+        'clock-digit',
+        'speech-synthesis',
+        'pinky',
+        'psychedelik',
+        'distance-computer',
+        'order-form',
+        'command-line',
+        'entity',
+        'intelligent-entity',
+        'cube',
+        'cube-wall',
+        'collision',
+        'square-clock',
+        'cube-inception',
+        'file-uploader'
     ];
 
 router.get('/', function (req, res, next) {
@@ -22,7 +36,7 @@ apps.forEach((app) => {
             view: '../public/' + app + '/main.ejs',
             style: '../' + app + '/main.css',
             script: '../' + app + '/main.js',
-            links: apps
+            links: apps.slice(1, apps.length)
         });
     });
 });

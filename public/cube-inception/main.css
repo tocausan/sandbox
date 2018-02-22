@@ -1,0 +1,182 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+  html .container,
+  body .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+    html .container .cube-0,
+    html .container .cube-1,
+    html .container .cube-2,
+    html .container .cube-3,
+    body .container .cube-0,
+    body .container .cube-1,
+    body .container .cube-2,
+    body .container .cube-3 {
+      position: absolute;
+      animation-timing-function: linear;
+      transform-style: preserve-3d; }
+      html .container .cube-0 .face,
+      html .container .cube-1 .face,
+      html .container .cube-2 .face,
+      html .container .cube-3 .face,
+      body .container .cube-0 .face,
+      body .container .cube-1 .face,
+      body .container .cube-2 .face,
+      body .container .cube-3 .face {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        line-height: 100px;
+        text-align: center;
+        font-size: 80px;
+        opacity: 0.3;
+        border: 1px solid crimson; }
+    html .container .cube-0,
+    body .container .cube-0 {
+      width: 50px;
+      height: 50px;
+      animation: rotation-0 10s linear infinite; }
+      html .container .cube-0 .face,
+      body .container .cube-0 .face {
+        width: 50px;
+        height: 50px; }
+      html .container .cube-0 .face-1,
+      body .container .cube-0 .face-1 {
+        transform: translateZ(calc(50px/2)); }
+      html .container .cube-0 .face-2,
+      body .container .cube-0 .face-2 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(50px/2)) rotateY(90deg); }
+      html .container .cube-0 .face-3,
+      body .container .cube-0 .face-3 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(-50px/2)) rotateY(-90deg); }
+      html .container .cube-0 .face-4,
+      body .container .cube-0 .face-4 {
+        transform: translateZ(0px) translateY(calc(50px/2)) rotateX(calc(-90deg)); }
+      html .container .cube-0 .face-5,
+      body .container .cube-0 .face-5 {
+        transform: translateZ(0px) translateY(calc(-50px/2)) rotateX(90deg); }
+      html .container .cube-0 .face-6,
+      body .container .cube-0 .face-6 {
+        transform: translateZ(calc(-50px/2)); }
+    html .container .cube-1,
+    body .container .cube-1 {
+      width: 100px;
+      height: 100px;
+      animation: rotation-1 10s linear infinite; }
+      html .container .cube-1 .face,
+      body .container .cube-1 .face {
+        width: 100px;
+        height: 100px; }
+      html .container .cube-1 .face-1,
+      body .container .cube-1 .face-1 {
+        transform: translateZ(calc(100px/2)); }
+      html .container .cube-1 .face-2,
+      body .container .cube-1 .face-2 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(100px/2)) rotateY(90deg); }
+      html .container .cube-1 .face-3,
+      body .container .cube-1 .face-3 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(-100px/2)) rotateY(-90deg); }
+      html .container .cube-1 .face-4,
+      body .container .cube-1 .face-4 {
+        transform: translateZ(0px) translateY(calc(100px/2)) rotateX(calc(-90deg)); }
+      html .container .cube-1 .face-5,
+      body .container .cube-1 .face-5 {
+        transform: translateZ(0px) translateY(calc(-100px/2)) rotateX(90deg); }
+      html .container .cube-1 .face-6,
+      body .container .cube-1 .face-6 {
+        transform: translateZ(calc(-100px/2)); }
+    html .container .cube-2,
+    body .container .cube-2 {
+      width: 200px;
+      height: 200px;
+      animation: rotation-2 10s linear infinite; }
+      html .container .cube-2 .face,
+      body .container .cube-2 .face {
+        width: 200px;
+        height: 200px; }
+      html .container .cube-2 .face-1,
+      body .container .cube-2 .face-1 {
+        transform: translateZ(calc(200px/2)); }
+      html .container .cube-2 .face-2,
+      body .container .cube-2 .face-2 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(200px/2)) rotateY(90deg); }
+      html .container .cube-2 .face-3,
+      body .container .cube-2 .face-3 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(-200px/2)) rotateY(-90deg); }
+      html .container .cube-2 .face-4,
+      body .container .cube-2 .face-4 {
+        transform: translateZ(0px) translateY(calc(200px/2)) rotateX(calc(-90deg)); }
+      html .container .cube-2 .face-5,
+      body .container .cube-2 .face-5 {
+        transform: translateZ(0px) translateY(calc(-200px/2)) rotateX(90deg); }
+      html .container .cube-2 .face-6,
+      body .container .cube-2 .face-6 {
+        transform: translateZ(calc(-200px/2)); }
+    html .container .cube-3,
+    body .container .cube-3 {
+      width: 400px;
+      height: 400px;
+      animation: rotation-3 10s linear infinite; }
+      html .container .cube-3 .face,
+      body .container .cube-3 .face {
+        width: 400px;
+        height: 400px; }
+      html .container .cube-3 .face-1,
+      body .container .cube-3 .face-1 {
+        transform: translateZ(calc(400px/2)); }
+      html .container .cube-3 .face-2,
+      body .container .cube-3 .face-2 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(400px/2)) rotateY(90deg); }
+      html .container .cube-3 .face-3,
+      body .container .cube-3 .face-3 {
+        transform: translateZ(0px) translateX(0px) translateX(calc(-400px/2)) rotateY(-90deg); }
+      html .container .cube-3 .face-4,
+      body .container .cube-3 .face-4 {
+        transform: translateZ(0px) translateY(calc(400px/2)) rotateX(calc(-90deg)); }
+      html .container .cube-3 .face-5,
+      body .container .cube-3 .face-5 {
+        transform: translateZ(0px) translateY(calc(-400px/2)) rotateX(90deg); }
+      html .container .cube-3 .face-6,
+      body .container .cube-3 .face-6 {
+        transform: translateZ(calc(-400px/2)); }
+
+@keyframes rotation-0 {
+  from {
+    transform-origin: 50% 50%;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  to {
+    transform-origin: 50% 50%;
+    transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg); } }
+
+@keyframes rotation-1 {
+  from {
+    transform-origin: 50% 50%;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  to {
+    transform-origin: 50% 50%;
+    transform: rotateX(360deg) rotateY(0deg) rotateZ(360deg); } }
+
+@keyframes rotation-2 {
+  from {
+    transform-origin: 50% 50%;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  to {
+    transform-origin: 50% 50%;
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg); } }
+
+@keyframes rotation-3 {
+  from {
+    transform-origin: 50% 50%;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  to {
+    transform-origin: 50% 50%;
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); } }

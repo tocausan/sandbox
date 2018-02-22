@@ -1,0 +1,19 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+<div class="container ng-cloak" ng-app="tocausan" ng-cloak ng-controller="mainController">
+    <div class="commandLine columns">
+        <div class="line" ng-repeat="command in commands">
+            <p class="author">[captain]#</p>
+            <p class="command">{{command.text}}</p>
+        </div>
+
+        <div class="line">
+            <p class="author">[captain]#</p>
+            <div class="small-10 left">
+                <input type="text" class="small-12" ng-model="commandText" ng-keypress="handleKeyPress($event)"
+                       autofocus style="margin-top: -11px"/>
+            </div>
+
+        </div>
+    </div>
+</div>

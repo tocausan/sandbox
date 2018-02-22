@@ -1,0 +1,30 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+
+    svg{
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+    iframe{
+      position: absolute;
+      top: -100%;
+      opacity: 0;
+      background-color: red;
+    }
+  }
+}

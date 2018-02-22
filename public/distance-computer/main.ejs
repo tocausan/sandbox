@@ -1,0 +1,59 @@
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places"></script>
+
+<div class='container'>
+    <div class='jumbotron' id='map' style='height: 500px; padding: 0;'></div>
+
+    <form>
+        <div class="form-group col-xs-12 col-md-6">
+            <label for="pickupAddress">Pickup address</label>
+            <input
+                    type='text'
+                    class='form-control'
+                    id='pickupAddress'
+                    name='pickupAddress'
+                    placeholder='Enter a pickup address'
+                    required>
+
+            <label for="dropAddress">Drop address</label>
+            <input
+                    type='text'
+                    class='form-control'
+                    id='dropAddress'
+                    name='dropAddress'
+                    placeholder='Enter a drop address'
+                    required>
+        </div>
+
+        <div class="form-group col-xs-12 col-md-6">
+            <label for="pickupPosition">Pickup position</label>
+            <input
+                    type='text'
+                    class='form-control'
+                    id='pickupPosition'
+                    disabled>
+
+            <label for="pickupPosition">Drop position</label>
+            <input
+                    type='text'
+                    class='form-control'
+                    id='dropPosition'
+                    disabled>
+
+            <label for="pickupPosition">Distance</label>
+            <input
+                    type='text'
+                    class='form-control'
+                    id='distance'
+                    disabled>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+

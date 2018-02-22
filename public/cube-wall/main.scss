@@ -1,0 +1,84 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  .cubes{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 700px;
+    overflow: hidden
+  }
+  .conteneur{
+    position:relative;
+    width:100px;
+    height:100px;
+    float: left;
+
+    perspective:8000px;
+    perspective-origin:50% 50%;
+  }
+
+  .face{
+    width:100%;
+    height:100%;
+    position:absolute;
+    line-height:100px;
+    text-align:center;
+    font-size:80px;
+    opacity:1;
+  }
+
+  .cote1{
+    background-color: crimson;
+    transform:translateZ(50px);
+    z-index:10;
+  }
+  .cote2{
+    background-color: cornflowerblue;
+    transform:translateZ(-0px) translateX(0px) translateX(50px) rotateY(90deg);
+  }
+  .cote3{
+    background-color: cornsilk;
+    transform:translateZ(-0px) translateX(-0px) translateX(-50px) rotateY(-90deg);
+
+  }
+  .cote4{
+    background-color: hotpink;
+    transform:translateZ(-0px) translateY(50px) rotateX(-90deg);
+  }
+  .cote5{
+    background-color: brown;
+    transform:translateZ(-0px) translateY(-50px) rotateX(90deg);
+
+  }
+  .cote6{
+    background-color: darkblue;
+    transform:translateZ(-50px);
+  }
+
+  .parent{
+    position:relative;
+    width:100%;
+    height:100%;
+
+    animation:AnimCube 15s linear infinite;
+    animation-direction: alternate;
+    animation-timing-function:ease;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes AnimCube{
+    16% 	{ transform-origin: 50% 50%; transform: rotate3d(1,0,1, 90deg)}
+    32%	{ transform-origin: 50% 50%; transform: rotate3d(1,1,1, -90deg)}
+    48%	{ transform-origin: 50% 50%; transform: rotate3d(1,1,0, 90deg)}
+    64%	{ transform-origin: 50% 50%; transform: rotate3d(1,1,1, 90deg)}
+    80%	{ transform-origin: 50% 50%; transform: rotate3d(1,1,0, -90deg)}
+    100%	{ transform-origin: 50% 50%; transform: rotate3d(1,1,1, 180deg)}
+  }
+
+}

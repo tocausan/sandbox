@@ -1,0 +1,69 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0; }
+  html :focus,
+  body :focus {
+    outline: none; }
+  html .container,
+  body .container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    font: 14px monospace;
+    color: #fff;
+    background-color: #6496fa;
+    color: #fff;
+    font-weight: 900;
+    background: url("https://farm1.staticflickr.com/426/19303788143_16cf4b1b00_k.jpg") 0 0;
+    background-size: 100%;
+    background-attachment: fixed; }
+    html .container .commandLine,
+    body .container .commandLine {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 100%; }
+      html .container .commandLine .line,
+      body .container .commandLine .line {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%; }
+      html .container .commandLine p,
+      html .container .commandLine p:hover,
+      html .container .commandLine p:focus,
+      html .container .commandLine input,
+      html .container .commandLine input:hover,
+      html .container .commandLine input:focus,
+      body .container .commandLine p,
+      body .container .commandLine p:hover,
+      body .container .commandLine p:focus,
+      body .container .commandLine input,
+      body .container .commandLine input:hover,
+      body .container .commandLine input:focus {
+        padding: 0 5px;
+        font-weight: 900;
+        color: #fff;
+        margin: 0;
+        overflow: visible;
+        background: none;
+        border: none;
+        box-shadow: none;
+        outline-width: 0;
+        font: 14px monospace; }
+    html .container a,
+    body .container a {
+      color: #00b7ff; }

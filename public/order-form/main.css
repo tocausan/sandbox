@@ -1,0 +1,96 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+  html .container,
+  body .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    margin-top: 25px; }
+    html .container #prices,
+    body .container #prices {
+      width: 100%;
+      height: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: .1s;
+      background-color: lightblue;
+      text-align: center; }
+    html .container #prices:hover,
+    body .container #prices:hover {
+      height: 550px; }
+    html .container #prices h4,
+    body .container #prices h4 {
+      margin-bottom: 5px;
+      color: lightyellow;
+      text-shadow: 2px 2px 0px indianred; }
+    html .container #prices table,
+    body .container #prices table {
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 30%;
+      border-radius: .3em;
+      box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.4); }
+    html .container #form,
+    body .container #form {
+      width: 100%;
+      height: 390px;
+      text-align: center;
+      transition: .1s;
+      background-color: indianred; }
+    html .container #form h4,
+    body .container #form h4 {
+      margin-bottom: 5px;
+      color: lightyellow;
+      text-shadow: 2px 2px 0px lightblue; }
+    html .container #form .colonne-3 input,
+    html .container #form .colonne-3 select,
+    html .container #form .colonne-3 textarea,
+    body .container #form .colonne-3 input,
+    body .container #form .colonne-3 select,
+    body .container #form .colonne-3 textarea {
+      width: 60%;
+      height: 25px;
+      border: none;
+      border-radius: .3em;
+      margin-bottom: 5px;
+      box-shadow: 2px 2px 5px rgba(100, 100, 100, 0.4); }
+    html .container #form .colonne-3 textarea,
+    body .container #form .colonne-3 textarea {
+      height: inherit; }
+    html .container #result,
+    body .container #result {
+      width: 100%;
+      height: 300px;
+      text-align: center;
+      transition: .1s;
+      background-color: lightyellow; }
+    html .container #result h4,
+    body .container #result h4 {
+      margin-bottom: 5px;
+      color: lightblue;
+      text-shadow: 2px 2px 0px indianred; }
+    html .container #order_map,
+    body .container #order_map {
+      width: 100%;
+      height: 200px; }
+    html .container body > div,
+    body .container body > div {
+      margin-top: -15px;
+      padding-top: 10px;
+      box-shadow: 0px 2px 3px rgba(100, 100, 100, 0.4); }
+    html .container .colonne-3,
+    body .container .colonne-3 {
+      width: 33.333%;
+      float: left; }
+    html .container .colonne-4,
+    body .container .colonne-4 {
+      width: 25%;
+      float: left; }

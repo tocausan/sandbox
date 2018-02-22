@@ -1,0 +1,202 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places"></script>
+
+<div class="container" ng-app="order" ng-controller="newOrdersController">
+
+    <div id="prices">
+        <h3>Settings</h3>
+
+        <table>
+            <h4>Hours</h4>
+            <thead>
+            <th>{{ master.hours[0].name }}</th>
+            <th>{{ master.hours[1].name }}</th>
+            </thead>
+            <tr>
+                <td>{{ master.hours[0].hour }}:{{ master.hours[0].min }}</td>
+                <td>{{ master.hours[1].hour }}:{{ master.hours[1].min }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <h4>Distance</h4>
+            <thead>
+            <th>{{ master.distance[0].name }}</th>
+            <th>{{ master.distance[1].name }}</th>
+            <th>{{ master.distance[2].name }}</th>
+            <th>{{ master.distance[3].name }}</th>
+            </thead>
+            <tr>
+                <td>{{ master.distance[0].distance | currency:"km " }}</td>
+                <td>{{ master.distance[1].distance | currency:"km " }}</td>
+                <td>{{ master.distance[2].distance | currency:"km " }}</td>
+                <td>{{ master.distance[3].distance | currency:"km " }}</td>
+            </tr>
+            <tr>
+                <td>{{ master.distance[0].price | currency:"€ " }}</td>
+                <td>{{ master.distance[1].price | currency:"€ " }}</td>
+                <td>{{ master.distance[2].price | currency:"€ " }}</td>
+                <td>{{ master.distance[3].price | currency:"€ " }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <h4>Size</h4>
+            <thead>
+            <th>{{ master.size[0].name }}</th>
+            <th>{{ master.size[1].name }}</th>
+            <th>{{ master.size[2].name }}</th>
+            <th>{{ master.size[3].name }}</th>
+            </thead>
+            <tr>
+                <td>{{ master.size[0].price | currency:"€ " }}</td>
+                <td>{{ master.size[1].price | currency:"€ " }}</td>
+                <td>{{ master.size[2].price | currency:"€ " }}</td>
+                <td>{{ master.size[3].price | currency:"€ " }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <h4>Speed</h4>
+            <thead>
+            <th>{{ master.speed[0].name }}</th>
+            <th>{{ master.speed[1].name }}</th>
+            <th>{{ master.speed[2].name }}</th>
+            <th>{{ master.speed[3].name }}</th>
+            </thead>
+            <tr>
+                <td>{{ master.speed[0].price | currency:"€ " }}</td>
+                <td>{{ master.speed[1].price | currency:"€ " }}</td>
+                <td>{{ master.speed[2].price | currency:"€ " }}</td>
+                <td>{{ master.speed[3].price | currency:"€ " }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <h4>Travel</h4>
+            <thead>
+            <th>{{ master.travel[0].name }}</th>
+            <th>{{ master.travel[1].name }}</th>
+            </thead>
+            <tr>
+                <td>{{ master.travel[0].price | currency:"x " }}</td>
+                <td>{{ master.travel[1].price | currency:"x " }}</td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div id="form">
+        <form method="post" novalidate>
+            <h3>New order</h3>
+
+            <div class="colonne-3">
+                <h4 data-tooltip aria-haspopup="true" class="has-tip" title="info">from</h4>
+                <input type="text" ng-model="order.PU_firstname" name="PU_firstname" placeholder="firstname" required>
+                <br>
+                <input type="text" ng-model="order.PU_lastname" name="PU_lastname" placeholder="lastname" required> <br>
+                <input type="tel" ng-model="order.PU_phone" name="PU_phone" placeholder="phone" required> <br>
+                <input type="tel" ng-model="order.PU_mobile" name="PU_mobile" placeholder="mobile"> <br>
+                <input type="text" ng-model="order.PU_society" name="PU_society" placeholder="society"> <br>
+                <input type="text" ng-model="order.PU_address" name="PU_address" placeholder="address" id="PU_address"
+                       required> <br>
+                <input type="hidden" ng-model="order.PU_position" name="PU_position" placeholder="position"
+                       id="PU_position">
+            </div>
+
+            <div class="colonne-3">
+                <h4 data-tooltip aria-haspopup="true" class="has-tip" title="info">to</h4>
+                <input type="text" ng-model="order.D_firstname" name="D_firstname" placeholder="firstname" required>
+                <br>
+                <input type="text" ng-model="order.D_lastname" name="D_lastname" placeholder="lastname" required> <br>
+                <input type="tel" ng-model="order.D_phone" name="D_phone" placeholder="phone" required> <br>
+                <input type="tel" ng-model="order.D_mobile" name="D_mobile" placeholder="mobile"> <br>
+                <input type="text" ng-model="order.D_society" name="D_society" placeholder="society"> <br>
+                <input type="text" ng-model="order.D_address" name="D_address" placeholder="address" id="D_address"
+                       required> <br>
+                <input type="hidden" ng-model="order.D_position" name="D_position" placeholder="position"
+                       id="D_position" required>
+            </div>
+
+            <div class="colonne-3">
+                <h4 data-tooltip aria-haspopup="true" class="has-tip" title="info">pack & options</h4>
+
+                <select name="travel" ng-model="order.travel"
+                        ng-options="travel.value as travel.name for travel in master.travel" required></select> <br>
+                <select name="size" ng-model="order.size" ng-options="size.value as size.name for size in master.size"
+                        required></select> <br>
+                <select name="speed" ng-model="order.speed"
+                        ng-options="speed.value as speed.name for speed in master.speed" required></select> <br>
+                <select name="PU_timeSelect" ng-model="order.pickup_at"
+                        ng-options="pickup_at.value as pickup_at.name | date: 'HH:mm' for pickup_at in master.pickup_at"
+                        required></select> <br>
+                <textarea rows="5" ng-model="order.comment" name="comment" placeholder="comment"></textarea>
+            </div>
+
+            <div class="colonne-3">
+                <input type="hidden" step="0.001" max="7" name="distance" id="distance" ng-model="order.distance"
+                       required> <br>
+                <input type="hidden" name="pickup_at" ng-model="order.pickup_at" min="1" required> <br>
+                <input type="hidden" name="travel" ng-model="order.travel" required> <br>
+                <input type="hidden" name="size" ng-model="order.size" required> <br>
+                <input type="hidden" name="speed" ng-model="order.speed" required> <br>
+                <input type="hidden" name="price" id="price" required> <br>
+            </div>
+
+        </form>
+    </div>
+    <br>
+    <div id="result">
+        <h3>Result</h3>
+
+        <div class="colonne-4">
+            <h4>from</h4>
+
+            {{ order.PU_firstname }} <b>{{ order.PU_lastname }}</b> <br>
+            {{ order.PU_phone }} / {{ order.PU_mobile }} <br>
+            {{ order.PU_society }} <br>
+            <i>{{ order.PU_address }}</i>
+        </div>
+
+        <div class="colonne-4">
+            <h4>to</h4>
+
+            {{ order.D_firstname }} <b>{{ order.D_lastname }}</b> <br>
+            {{ order.D_phone }} / {{ order.D_mobile }} <br>
+            {{ order.D_society }} <br>
+            <i>{{ order.D_address }}</i>
+        </div>
+
+        <div class="colonne-4">
+            <h4>pack & options</h4>
+
+            {{ master.travel[order.travel].name }} <br>
+            {{ master.size[order.size].name }} <br>
+            {{ master.speed[order.speed].name }} <br>
+            {{ order.distance | currency:"km " }} <br>
+            {{ order.pickup_at }}
+
+        </div>
+
+        <div class="colonne-4">
+            <h4>prices</h4>
+
+            {{ master.travel[order.travel].price | currency:"x " }} <br>
+            {{ master.size[order.size].price | currency:"€ " }} <br>
+            {{ master.speed[order.speed].price | currency:"€ " }} <br>
+            {{ master.distance[order.distanceValue].price | currency:"€ " }} <br>
+            <hr>
+            {{ order.price | currency:"€ " }}
+        </div>
+
+
+        <div class="text-center" ng-show="form.$error.email">email incorrect</div>
+        <div class="text-center" ng-show="user.password != user.passconf">passwords should match</div>
+    </div>
+
+    <div id="order_map"></div>
+</div>
+
+
+

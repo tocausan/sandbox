@@ -6,20 +6,18 @@ body {
   width: 100%;
   height: 100%;
 
-  .board {
+  .container{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 95%;
+    height: 90%;
+    margin-top: 50px;
 
-    .cell {
-      fill: white;
-      transition: .3s;
-      height: 20px;
-
-      &.active {
-        fill: rgba(255, 105, 97, 1);
-        height: 60px;
-      }
+    canvas{
+      width: 100%;
+      height: 100%;
+      background-color: black;
     }
   }
 }

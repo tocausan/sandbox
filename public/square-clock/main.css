@@ -1,0 +1,36 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+  html .contenu,
+  body .contenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%; }
+    html .contenu #secs, html .contenu #mins, html .contenu #hours,
+    body .contenu #secs,
+    body .contenu #mins,
+    body .contenu #hours {
+      position: absolute;
+      margin: auto auto;
+      height: 50%; }
+    html .contenu #secs,
+    body .contenu #secs {
+      z-index: 3;
+      opacity: 1; }
+    html .contenu #mins,
+    body .contenu #mins {
+      z-index: 2; }
+    html .contenu #hours,
+    body .contenu #hours {
+      z-index: 1; }
+    html .contenu #secs, html .contenu #mins, html .contenu #hours,
+    body .contenu #secs,
+    body .contenu #mins,
+    body .contenu #hours {
+      transition: 0.8s; }

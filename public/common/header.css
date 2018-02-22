@@ -8,7 +8,8 @@ header {
   font-family: 'Raleway', sans-serif;
   position: fixed;
   top: 0;
-  background-color: white; }
+  background-color: white;
+  z-index: 100; }
   header a,
   header a:active {
     display: flex;
