@@ -58,7 +58,7 @@ function cellMove(cells){
 
     setInterval(() => {
         cellMove(cells);
-    }, 50);
-})()
+    }, 60);
+})();
 
 

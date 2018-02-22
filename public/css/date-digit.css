@@ -1,0 +1,29 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; }
+  html .container,
+  body .container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 60%; }
+    html .container svg,
+    body .container svg {
+      width: 100%;
+      height: 100%;
+      fill: floralwhite; }
+      html .container svg .titles,
+      body .container svg .titles {
+        fill: orangered; }
+      html .container svg .digit_box,
+      body .container svg .digit_box {
+        fill: transparent;
+        stroke: orangered;
+        stroke-width: .25px; }
+      html .container svg .active,
+      body .container svg .active {
+        fill: yellowgreen; }

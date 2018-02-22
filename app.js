@@ -27,12 +27,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 const index = require('./routes/index'),
     k2000 = require('./routes/k2000'),
     magicWord = require('./routes/magic-word'),
-    helloDoodle = require('./routes/magic-word');
+    helloDoodle = require('./routes/magic-word'),
+    shadowList = require('./routes/shadow-list'),
+    dateDigit = require('./routes/date-digit');
 
 app.use('/', index);
 app.use('/k2000', k2000);
 app.use('/magic-word', magicWord);
 app.use('/hello-doodle', helloDoodle);
+app.use('/shadow-list', shadowList);
+app.use('/date-digit', dateDigit);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

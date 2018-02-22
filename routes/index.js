@@ -7,7 +7,9 @@ router.get('/', function (req, res, next) {
         links: [
             'k2000',
             'magic-word',
-            'hello-doodle'
+            'hello-doodle',
+            'shadow-list',
+            'date-digit'
         ]
     });
 });

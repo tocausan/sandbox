@@ -5,9 +5,9 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
-  font-family: 'Raleway', sans-serif; }
-  html .container,
-  body .container {
+  font-family: 'Raleway', sans-serif;
+
+  .container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,23 +16,22 @@ body {
     width: 50%;
     min-height: 50%;
     max-height: 80%;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    overflow-x: scroll; }
-    html .container .item,
-    body .container .item {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .2) ;
+    overflow-x: scroll;
+
+    .item {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 90%;
-      height: 25px;
+      min-height: 35px;
       text-align: center;
       transition: .3s;
       margin-top: 3px;
-      padding: 2px; }
-      html .container .item a,
-      html .container .item a:active,
-      body .container .item a,
-      body .container .item a:active {
+      padding: 2px;
+
+      a,
+      a:active{
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -41,8 +40,13 @@ body {
         padding: 0 15px;
         color: black;
         text-decoration: none;
-        cursor: pointer; }
-      html .container .item:hover,
-      body .container .item:hover {
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-        background-color: rgba(0, 0, 0, 0.05); }
+        cursor: pointer;
+      }
+
+      &:hover {
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
+        background-color: rgba(0, 0, 0, .05);
+      }
+    }
+  }
+}

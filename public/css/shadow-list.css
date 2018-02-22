@@ -24,7 +24,7 @@ body {
       justify-content: center;
       align-items: center;
       width: 90%;
-      height: 25px;
+      min-height: 35px;
       text-align: center;
       transition: .3s;
       margin-top: 3px;
