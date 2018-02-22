@@ -29,7 +29,8 @@ const index = require('./routes/index'),
     magicWord = require('./routes/magic-word'),
     helloDoodle = require('./routes/magic-word'),
     shadowList = require('./routes/shadow-list'),
-    dateDigit = require('./routes/date-digit');
+    dateDigit = require('./routes/date-digit'),
+    clockDigit = require('./routes/clock-digit');
 
 app.use('/', index);
 app.use('/k2000', k2000);
@@ -37,6 +38,7 @@ app.use('/magic-word', magicWord);
 app.use('/hello-doodle', helloDoodle);
 app.use('/shadow-list', shadowList);
 app.use('/date-digit', dateDigit);
+app.use('/clock-digit', clockDigit);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

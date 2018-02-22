@@ -9,7 +9,8 @@ router.get('/', function (req, res, next) {
             'magic-word',
             'hello-doodle',
             'shadow-list',
-            'date-digit'
+            'date-digit',
+            'clock-digit'
         ]
     });
 });

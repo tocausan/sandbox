@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm-run-all --parallel watch:server watch:build",
-    "watch:build": "node-sass --watch public/scss -o public/css",
+    "watch:build": "node-sass --watch public/* -o public/*",
     "watch:server": "nodemon \"./bin/www\" --port 192.168.1.100 --watch \"./dist\""
   },
   "dependencies": {
