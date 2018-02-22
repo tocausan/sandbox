@@ -1,0 +1,29 @@
+{
+  "name": "tiny-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm-run-all --parallel watch:server watch:build",
+    "watch:build": "node-sass --watch public/scss -o public/css",
+    "watch:server": "nodemon \"./bin/www\" --port 192.168.1.100 --watch \"./dist\""
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "css-loader": "^0.28.9",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.5",
+    "morgan": "~1.9.0",
+    "node-sass": "^4.7.2",
+    "node-sass-middleware": "0.9.8",
+    "npm-run-all": "^4.1.2",
+    "sass-loader": "^6.0.6",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "webpack": "^3.11.0"
+  }
+}

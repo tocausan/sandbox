@@ -1,0 +1,28 @@
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .frames {
+      width: 60%;
+      fill: none;
+      stroke: black;
+      stroke-width: .1px;
+      & > * {
+        display: none;
+
+      }
+    }
+  }
+
+
+}
