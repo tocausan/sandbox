@@ -1,9 +1,9 @@
-### Sandbox
+## Sandbox
 
 This sandbox gives the ability to build and test frontend utilities locally.
 It is based on one main menu linking to the added components.
 
-## Installation
+### Installation
 Clone this repo and use NPM to install the packages.
 ```
 npm install
