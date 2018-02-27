@@ -1,38 +1,64 @@
 const gulp = require('gulp'),
     sass = require('gulp-sass'),
     server = require('gulp-express'),
-    publicPath = './public';
+    minifyHtml = require("gulp-minify-html"),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    ts = require('gulp-typescript'),
+    pump = require('pump'),
+    browserSync = require('browser-sync'),
+    srcPath = './src',
+    distPath = './dist';
 
-
-gulp.task('default', function () {
-    gulp.watch(publicPath + '/**/*.scss', ['sass']);
-    gulp.watch('.',['server']);
+gulp.task('default', ['ejs', 'sass', 'ts', 'js', 'browser-sync'], () => {
+    gulp.watch(srcPath + '/**/*.ts', ['ts', 'browser-sync-reload']);
+    gulp.watch(srcPath + '/**/*.js', ['js', 'browser-sync-reload']);
+    gulp.watch(srcPath + '/**/*.scss', ['sass', 'browser-sync-reload']);
+    gulp.watch(srcPath + '/**/*.ejs', ['ejs', 'browser-sync-reload']);
+    gulp.watch('.', ['server']);
 });
 
-gulp.task('sass', function () {
-    gulp.src(publicPath + '/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(publicPath + '/'));
+gulp.task('ejs', () => {
+    return gulp.src(srcPath + '/**/*.ejs')
+        .pipe(minifyHtml())
+        .pipe(gulp.dest(distPath + '/'));
 });
 
-gulp.task('server', function () {
-    // Start the server at the beginning of the task
-    server.run(['app.js']);
+gulp.task('sass', () => {
+    return gulp.src(srcPath + '/**/*.scss')
+        .pipe(sass.sync().on('error', sass.logError))
+        .pipe(gulp.dest(distPath + '/'));
+});
 
-    // Restart the server when file changes
-    gulp.watch([publicPath + '/**/*.ejs'], server.notify);
-    gulp.watch([publicPath + '/**/*.scss'], ['styles:scss']);
-    //gulp.watch(['{.tmp,app}/styles/**/*.css'], ['styles:css', server.notify]);
-    //Event object won't pass down to gulp.watch's callback if there's more than one of them.
-    //So the correct way to use server.notify is as following:
-    gulp.watch(['{.tmp,app}/**/*.css'], function (event) {
-        gulp.run('styles:css');
-        server.notify(event);
-        //pipe support is added for server.notify since v0.1.5,
-        //see https://github.com/gimm/gulp-express#servernotifyevent
+gulp.task('js', () => {
+    return gulp.src(srcPath + '/**/*.js')
+        .pipe(gulp.dest(distPath + '/'));
+});
+
+gulp.task('ts', () => {
+    return gulp.src(srcPath + '/**/*.ts')
+        .pipe(ts({
+            noImplicitAny: true
+        }))
+        .pipe(gulp.dest(distPath + '/'));
+});
+
+gulp.task('browser-sync', () => {
+    browserSync.init({
+        proxy: "localhost:3000",
+        port: 5000,
+        notify: true
     });
-
-    gulp.watch([publicPath + '/**/*.js'], ['jshint']);
-    gulp.watch([publicPath + '/**/*'], server.notify);
-    gulp.watch(['app.js', 'routes/**/*.js'], [server.run]);
 });
+
+gulp.task('browser-sync-reload', () => {
+    browserSync.reload();
+});
+
+gulp.task('server', () => {
+    server.run(['app.js']);
+    gulp.watch(['app.js', 'routes/*.js'], [server.run]);
+});
+
+
+

@@ -29,19 +29,16 @@ router.get('/', function (req, res, next) {
     res.redirect('index');
 });
 
-apps.forEach((app) = > {
+apps.forEach((app) => {
     router.get('/' + app, function (req, res, next) {
-
-    res.render('template', {
-        title: app,
-        view: '../public/' + app + '/main.ejs',
-        style: '../' + app + '/main.css',
-        script: '../' + app + '/main.js',
-        links: apps.slice(1, apps.length)
+        res.render('template', {
+            title: app,
+            view: '../dist/' + app + '/main.ejs',
+            style: '/' + app + '/main.css',
+            script: '/' + app + '/main.js',
+            links: apps.slice(1, apps.length)
+        });
     });
 });
-})
-;
-
 
 module.exports = router;
