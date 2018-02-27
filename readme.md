@@ -17,7 +17,7 @@ then create a folder with the same name in public containing style, script and v
 const apps = [
     'new-app-name'
     ]
-// public/new-app-name/
+// src/new-app-name/
 //  main.ejs
 //  main.scss
 //  main.js
