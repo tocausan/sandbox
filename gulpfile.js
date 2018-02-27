@@ -16,49 +16,42 @@ gulp.task('default', ['ejs', 'sass', 'ts', 'js', 'browser-sync'], () => {
     gulp.watch(srcPath + '/**/*.scss', ['sass', 'browser-sync-reload']);
     gulp.watch(srcPath + '/**/*.ejs', ['ejs', 'browser-sync-reload']);
     gulp.watch('.', ['server']);
-});
-
-gulp.task('ejs', () => {
-    return gulp.src(srcPath + '/**/*.ejs')
-        .pipe(minifyHtml())
-        .pipe(gulp.dest(distPath + '/'));
-});
-
-gulp.task('sass', () => {
-    return gulp.src(srcPath + '/**/*.scss')
-        .pipe(sass.sync().on('error', sass.logError))
-        .pipe(gulp.dest(distPath + '/'));
-});
-
-gulp.task('js', () => {
-    return gulp.src(srcPath + '/**/*.js')
-        .pipe(gulp.dest(distPath + '/'));
-});
-
-gulp.task('ts', () => {
-    return gulp.src(srcPath + '/**/*.ts')
-        .pipe(ts({
-            noImplicitAny: true
-        }))
-        .pipe(gulp.dest(distPath + '/'));
-});
-
-gulp.task('browser-sync', () => {
-    browserSync.init({
-        proxy: "localhost:3000",
-        port: 5000,
-        notify: true
+})
+    .task('ejs', () => {
+        return gulp.src(srcPath + '/**/*.ejs')
+            .pipe(minifyHtml())
+            .pipe(gulp.dest(distPath + '/'));
+    })
+    .task('sass', () => {
+        return gulp.src(srcPath + '/**/*.scss')
+            .pipe(sass.sync().on('error', sass.logError))
+            .pipe(gulp.dest(distPath + '/'));
+    })
+    .task('js', () => {
+        return gulp.src(srcPath + '/**/*.js')
+            .pipe(gulp.dest(distPath + '/'));
+    })
+    .task('ts', () => {
+        return gulp.src(srcPath + '/**/*.ts')
+            .pipe(ts({
+                noImplicitAny: true
+            }))
+            .pipe(gulp.dest(distPath + '/'));
+    })
+    .task('browser-sync', () => {
+        browserSync.init({
+            proxy: "localhost:3000",
+            port: 5000,
+            notify: true
+        });
+    })
+    .task('browser-sync-reload', () => {
+        browserSync.reload();
+    })
+    .task('server', () => {
+        server.run(['app.js']);
+        gulp.watch(['app.js', 'routes/*.js'], [server.run]);
     });
-});
-
-gulp.task('browser-sync-reload', () => {
-    browserSync.reload();
-});
-
-gulp.task('server', () => {
-    server.run(['app.js']);
-    gulp.watch(['app.js', 'routes/*.js'], [server.run]);
-});
 
 
 
