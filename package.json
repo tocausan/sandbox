@@ -17,6 +17,7 @@
     "express": "~4.15.5",
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-express": "^0.3.5",
     "gulp-minify-html": "^1.0.6",

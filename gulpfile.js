@@ -1,22 +1,27 @@
 const gulp = require('gulp'),
+    clean = require('gulp-clean'),
     sass = require('gulp-sass'),
+    ts = require('gulp-typescript'),
     server = require('gulp-express'),
     minifyHtml = require("gulp-minify-html"),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    ts = require('gulp-typescript'),
     pump = require('pump'),
     browserSync = require('browser-sync'),
     srcPath = './src',
     distPath = './dist';
 
-gulp.task('default', ['ejs', 'sass', 'ts', 'js', 'browser-sync'], () => {
-    gulp.watch(srcPath + '/**/*.ts', ['ts', 'browser-sync-reload']);
+gulp.task('default', ['ejs', 'sass', 'js', 'ts', 'browser-sync'], () => {
     gulp.watch(srcPath + '/**/*.js', ['js', 'browser-sync-reload']);
     gulp.watch(srcPath + '/**/*.scss', ['sass', 'browser-sync-reload']);
     gulp.watch(srcPath + '/**/*.ejs', ['ejs', 'browser-sync-reload']);
     gulp.watch('.', ['server']);
 })
+    .task('clean', function () {
+        return gulp.src(distPath)
+            .pipe(clean({force: true}))
+            .pipe(gulp.dest('/'));
+    })
     .task('ejs', () => {
         return gulp.src(srcPath + '/**/*.ejs')
             .pipe(minifyHtml())
@@ -41,7 +46,7 @@ gulp.task('default', ['ejs', 'sass', 'ts', 'js', 'browser-sync'], () => {
     .task('browser-sync', () => {
         browserSync.init({
             proxy: "localhost:3000",
-            port: 5000,
+            port: 3000,
             notify: true
         });
     })

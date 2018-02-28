@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "removeComments": false,
+    "sourceMap": true,
+    "moduleResolution": "Node",
+    "pretty": true,
+    "module": "commonjs",
+    "target": "es6",
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": false,
+    "watch": true,
+    "allowJs": false,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "plugins": [
+      {
+        "name": "tslint-language-service"
+      }
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts"
+  ]
+}

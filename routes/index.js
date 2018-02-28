@@ -22,7 +22,8 @@ const apps = [
     'collision',
     'square-clock',
     'cube-inception',
-    'file-uploader'
+    'file-uploader',
+    'dots'
 ];
 
 router.get('/', function (req, res, next) {
